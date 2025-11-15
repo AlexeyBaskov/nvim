@@ -1,8 +1,11 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 vim.opt.list = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
