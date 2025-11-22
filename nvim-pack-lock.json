@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "conform.nvim": {
       "rev": "cde4da5c1083d3527776fee69536107d98dae6c9",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -15,6 +19,10 @@
     "nvim-lspconfig": {
       "rev": "c6f05c0900144f027a8a0332566878e398d457b5",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "roslyn.nvim": {
+      "rev": "88f837a658df7304ae47fdf251c9560ffbc6bf2b",
+      "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
