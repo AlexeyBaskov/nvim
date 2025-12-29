@@ -10,6 +10,7 @@ vim.pack.add({
 	git_appendix .. "seblyng/roslyn.nvim",
 	git_appendix .. "nvim-lua/plenary.nvim",
 	git_appendix .. "nvim-telescope/telescope.nvim",
+	git_appendix .. "nvim-treesitter/nvim-treesitter",
 })
 
 local wk = require("which-key")
@@ -32,6 +33,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"stylua",
+		-- "typos-lsp",
 		-- "roslyn",
 		-- "csharpier",
 	},
@@ -121,3 +123,25 @@ vim.diagnostic.config({
 })
 
 require("telescope").setup({})
+
+require("nvim-treesitter").setup({
+	ensure_installed = { "c_sharp" },
+	highlight = { enable = true },
+})
+
+vim.lsp.config("typos_lsp", {
+	cmd = { "typos-lsp" },
+	filetypes = {
+		"c",
+		"cpp",
+		"cs",
+		"lua",
+		"rust",
+		"python",
+		"javascript",
+		"typescript",
+	},
+	init_options = {
+		diagnosticSeverity = "Hint",
+	},
+})

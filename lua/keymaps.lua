@@ -13,6 +13,19 @@ vim.keymap.set("n", "<leader>ca", function()
 	vim.lsp.buf.code_action()
 end, { desc = "Code actions" })
 
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+
+local optimizeUsings = function()
+	--TODO: implementation
+end
+vim.keymap.set("n", "<C-M-o>", optimizeUsings, { desc = "Optimize usings" })
+vim.keymap.set("n", "<leader>co", optimizeUsings, { desc = "Optimize usings" })
+
 local telescopeKeymapConfiguration = function()
 	local telescope = require("telescope.builtin")
 
