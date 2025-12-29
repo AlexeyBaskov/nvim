@@ -8,6 +8,8 @@ vim.pack.add({
 	git_appendix .. "stevearc/conform.nvim",
 	git_appendix .. "saghen/blink.cmp",
 	git_appendix .. "seblyng/roslyn.nvim",
+	git_appendix .. "nvim-lua/plenary.nvim",
+	git_appendix .. "nvim-telescope/telescope.nvim",
 })
 
 local wk = require("which-key")
@@ -46,6 +48,15 @@ require("conform").setup({
 	},
 })
 
+require("blink.cmp").setup({
+	keymap = {
+		preset = "enter",
+	},
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
+})
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -65,9 +76,8 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
-require("roslyn").setup()
-
 vim.lsp.config("roslyn", {
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
 		["csharp|background_analysis"] = {
 			dotnet_analyzer_diagnostics_scope = "fullSolution",
@@ -102,14 +112,12 @@ vim.lsp.config("roslyn", {
 	},
 })
 
-require("blink.cmp").setup({
-	keymap = {
-		preset = "enter",
-	},
-})
-
 vim.diagnostic.config({
 	--underline = true,
-	--virtual_text = true,
+	virtual_text = false,
 	virtual_lines = true,
+	severity_sort = true,
+	float = { border = "rounded" },
 })
+
+require("telescope").setup({})
