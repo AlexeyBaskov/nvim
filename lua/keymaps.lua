@@ -19,6 +19,7 @@ vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
 
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Explore" })
 
 local optimizeUsings = function()
 	--TODO: implementation
